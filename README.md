@@ -110,7 +110,8 @@ Cov3,cov4,cov5 三层 CNN
 workshop (2015).
 5)	HDT: "Hedged Deep Tracking." CVPR (2016).
 将 CNN 不同层分别作为特征训练弱跟踪器，通过 hedge 算法生成强跟踪器。
-6)	ACFN: "Attentional Correlation Filter Network for Adaptive Visual Tracking." CVPR (2017). 基于不同模块类型的组合，自适应选择最好的模块。将注意力机制引进相关滤波（Matlab 实现相关滤波网络和 TensorFlow 实现注意力网络,LSTM）,使用了 AtCF 与 KCF。考虑了目标纵横变化和漂移目标的延迟更新。
+6)	ACFN: "Attentional Correlation Filter Network for Adaptive Visual Tracking." CVPR (2017). 
+基于不同模块类型的组合，自适应选择最好的模块。将注意力机制引进相关滤波（Matlab 实现相关滤波网络和 TensorFlow 实现注意力网络,LSTM）,使用了 AtCF 与 KCF。考虑了目标纵横变化和漂移目标的延迟更新。
 贡献：引入注意相关滤波器网络，允许动态目标的自适应跟踪；利用注意力网络将注意力转移到最佳候选模块，以及预测当前非活动模块的估计精度；扩大相关滤波覆盖目标漂移、模糊、遮挡、尺度变化和柔性纵横比的多样性；通过多个实验验证视觉跟踪的注意机制的鲁棒性和效率。
 7)	CFNet: "End-to-end Representation Learning for Correlation Filter based Tracking." CVPR (2017).
 训练非对称的 Siamese network(孪生神经网络)，将 CF 最为层嵌入网络，并在傅里叶域进行 back-propagation，以实现端到端的训练网络。
