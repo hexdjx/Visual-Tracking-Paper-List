@@ -2,7 +2,7 @@
 
 This repository includes related trackers of Discrimitive Correlation Filters in Visual Tracking, which are implemented by Matlab.
 
-⭐ FSAKCF is my improved algorithm, which uses a fast scale adaptive estimation to solve the problem of target scale change.
+⭐ FSAKCF is my improved tracker, which uses a fast scale adaptive estimation to solve the problem of target scale change.
 
 Here is a brief overview of some DCF trackers I have read.
 
