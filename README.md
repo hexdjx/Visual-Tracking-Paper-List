@@ -4,7 +4,7 @@ This repository includes related trackers of Discrimitive Correlation Filters in
 
 ⭐ FSAKCF is my improved tracker, which uses a fast scale adaptive estimation to solve the problem of target scale change.
 
-Here is a brief overview of some DCF trackers I have read.
+Here is a brief overview of some DCF trackers I have read during my master's degree.
 
 # Baseline
 1)	MOSSE: "Visual Object Tracking using Adaptive Correlation Filters." ICCV (2010).  
