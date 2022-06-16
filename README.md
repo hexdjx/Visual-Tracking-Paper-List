@@ -1,10 +1,13 @@
-# VisualTracking
+# Visual Tracking Paper List 
+This repository records the visual tracking papers I have read and specially selected, and I also make a brief summary for each paper.  
 
-This repository includes related trackers of Discrimitive Correlation Filters in Visual Tracking, which are implemented by Matlab.
+## 2022
+* "Global Tracking via Ensemble of Local Trackers" CVPR. [[Paper]](http://arxiv.org/abs/2203.16092)
+    
 
-⭐ FSAKCF is my improved tracker, which uses a fast scale adaptive estimation to solve the problem of target scale change.
-
-Here is a brief overview of some DCF trackers I have read during my master's degree.
+## 2017
+* ECO: "ECO: Efficient Convolution Operators for Tracking" CVPR. [[Paper]](https://arxiv.org/abs/1611.09224) [[Code]](https://github.com/martin-danelljan/ECO)   
+  滤波模板系数化，高斯混合模型分类，间隔 5 帧更新模型。
 
 # Baseline
 1)	MOSSE: "Visual Object Tracking using Adaptive Correlation Filters." ICCV (2010).  
@@ -96,6 +99,3 @@ Here is a brief overview of some DCF trackers I have read during my master's deg
     将特征提取响应图生成模型更新整合进神经网络进行端到端训练；在线更新：残差学习。原因：DCF 独立于特征提取，端到端训练较少，参数更新固定
 11)	CFWCR: "Correlation Filters With Weighted Convolution Responses." ICCV workshop (2017).
     基于ECO，多不同特征维度响应图加权，尺度估计最优实验。
-
-# Thoughts
-设置 1 个正样本滤波器和数个负样本滤波器，根据不同的负样本训练得到的滤波器跟踪框和正样本滤波器的跟踪框的是否重叠判断是否存在遮挡在确定目标位置后，在新位置上对目标进行轮廓提取，取轮廓的 x,y 方向上的最大最小值。从 HDT 与 CFWCR 中结合学习，响应图变化情况调整期望输出
