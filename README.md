@@ -5,12 +5,35 @@ This repository records the visual tracking papers I have read, and I also make 
 * "Global Tracking via Ensemble of Local Trackers" CVPR. [[Paper]](http://arxiv.org/abs/2203.16092) [[Code]](https://github.com/ZikunZhou/GTELT)  
    针对长期目标跟踪的改进，网络使用了ResNet50+Transformer+DETR预测头。与re-detection 和 global tracking跟踪方式不同，采用10个局部跟踪器（参照Deformable DETR）的集成实现全局跟踪。另外，KeepTrack的LaSOT结果与原作者提供的不一致。  
 
+## 2021
+
+
+## 2020
+* KYS: "Know Your Surroundings: Exploiting Scene Information for Object Tracking" ECCV. [[Paper]](https://link.springer.com/chapter/10.1007/978-3-030-58592-1_13)  
+  基于DiMP,采用ConvGRU隐式编码场景信息以应对distractor的干扰
+* LTMU: "High-Performance Long-Term Tracking With Meta-Updater" CVPR. [[Paper]](http://openaccess.thecvf.com/content_CVPR_2020/html/Dai_High-Performance_Long-Term_Tracking_With_Meta-Updater_CVPR_2020_paper.html)   
+  Local+Global长期目标跟踪方式，局部跟踪器采用的ATOM定位+SiamMask尺度估计；fast R-CNN作为重检测器，SiamRPN用于对检测器的object并行生成更精准的矩形框，RTMDNet作为验证器重新识别目标供局部跟踪器继续跟踪。除了多跟踪器组合，核心是提出LSTM结构的Meta-Updater。
+* PrDiMP: "Probabilistic Regression for Visual Tracking" CVPR. [[Paper]](http://openaccess.thecvf.com/content_CVPR_2020/html/Danelljan_Probabilistic_Regression_for_Visual_Tracking_CVPR_2020_paper.html)  
+  满屏的公式，基于DiMP，从概率解释的角度构建回归模型，并采用KL散度训练。
+* "D3S - A Discriminative Single Shot Segmentation Tracker" CVPR. [[Paper]](http://openaccess.thecvf.com/content_CVPR_2020/html/Lukezic_D3S_-_A_Discriminative_Single_Shot_Segmentation_Tracker_CVPR_2020_paper.html)  
+  分割式跟踪，实现短期跟踪和视频目标分割，ATOM+VideoMatch+U-net组合。
+* "Siam R-CNN: Visual Tracking by Re-Detection" CVPR. [[Paper]](http://openaccess.thecvf.com/content_CVPR_2020/html/Voigtlaender_Siam_R-CNN_Visual_Tracking_by_Re-Detection_CVPR_2020_paper.html)    
+  长期跟踪，采用第一帧和前一帧目标重检测比对的方式，hard example mining提高判别能力，动态规划潜在目标和干扰者，现有的Box2Seg用于分割。总体跟踪速度太慢。
+* "Globaltrack: A simple and strong baseline for long-term tracking" AAAI. [[Paper]](https://ojs.aaai.org/index.php/AAAI/article/view/6758)  
+   全局搜索模型的长期目标跟踪任务，基于Faster-RCNN 类似于One-shot detector, 无模板更新。
+* "SiamFC++: Towards Robust and Accurate Visual Tracking with Target Estimation Guidelines" AAAI. [[Paper]](https://ojs.aaai.org/index.php/AAAI/article/view/6944)  
+   anchor-free的预测头（ltrb），计算一个中心度得分图对分类得分图加权，以降低离中心点远的位置得分值，提高鲁棒性。
+
 ## 2019
 * DiMP: "Learning Discriminative Model Prediction for Tracking" ICCV. [[Paper]](http://openaccess.thecvf.com/content_ICCV_2019/html/Bhat_Learning_Discriminative_Model_Prediction_for_Tracking_ICCV_2019_paper.html) [[Code]](https://github.com/visionml/pytracking)   
   将相关滤波跟踪范式设计成端到端可训练的在线目标分类分支 
 * "ATOM: Accurate Tracking by Overlap Maximization" CVPR. [[Paper]](http://openaccess.thecvf.com/content_CVPR_2019/html/Danelljan_ATOM_Accurate_Tracking_by_Overlap_Maximization_CVPR_2019_paper.html) [[Code]](https://github.com/visionml/pytracking)  
   将目标检测的IouNet引入到目标跟踪以解决目标尺度估计的问题
-  
+* "SiamRPN++: Evolution of Siamese Visual Tracking With Very Deep Networks" CVPR. [[Paper]](http://openaccess.thecvf.com/content_CVPR_2019/html/Li_SiamRPN_Evolution_of_Siamese_Visual_Tracking_With_Very_Deep_Networks_CVPR_2019_paper.html)    
+  SiamRPN的改进版，采用ResNet50作为backbone，多层融合，以multi-channel方式融合模板和搜索区域（即，Depthwise Cross Correlation）
+* "Learning the Model Update for Siamese Trackers" ICCV. [[Paper]](http://openaccess.thecvf.com/content_ICCV_2019/html/Zhang_Learning_the_Model_Update_for_Siamese_Trackers_ICCV_2019_paper.html)  
+  针对Siamese trackers采用的固定或移动平均法方式更新目标模板，训练了一个UpdateNet解决孪生网络的模板更新问题。
+    
 ## 2018
 * UPDT: "Unveiling the Power of Deep Tracking" ECCV. [[Paper]](http://openaccess.thecvf.com/content_ECCV_2018/html/Goutam_Bhat_Unveiling_the_Power_ECCV_2018_paper.html)  
   将HOG+CN当作浅层特征，CNN特征当作深层特征，对两种特征响应图进行自适应权重融合。
@@ -31,7 +54,7 @@ This repository records the visual tracking papers I have read, and I also make 
 * LMCF:"Large Margin Object Tracking with Circulant Feature Maps" CVPR. [[Paper]](http://openaccess.thecvf.com/content_cvpr_2017/html/Wang_Large_Margin_Object_CVPR_2017_paper.html)  
    SVM 与 CF 结合，多模式目标检测方法，提出APCE指标优化模型更新策略。 
 * CFNet: "End-to-end Representation Learning for Correlation Filter based Tracking" CVPR. [[Paper]](http://openaccess.thecvf.com/content_cvpr_2017/html/Valmadre_End-To-End_Representation_Learning_CVPR_2017_paper.html) [[Code]](https://github.com/bertinetto/cfnet)   
-  训练非对称的 Siamese network(孪生神经网络)，将 CF 最为层嵌入网络，并在傅里叶域进行 back-propagation，以实现端到端的训练网络。
+  训练非对称的 Siamese network，将 CF 作为层嵌入网络，并在傅里叶域进行 back-propagation，以实现端到端的训练网络。
 
 ## 2016
 * SiamFC: "Fully-Convolutional Siamese Networks for Object Tracking" ECCVW. [[Paper]](https://link.springer.com/chapter/10.1007/978-3-319-48881-3_56)  
@@ -44,7 +67,7 @@ This repository records the visual tracking papers I have read, and I also make 
    
 ## 2015
 * KCF: "High-Speed Tracking with Kernelized Correlation Filters" TPAMI. [[Paper]](https://ieeexplore.ieee.org/abstract/document/6870486/)   
-  详细阐述了循环位移采样过程，和引入核机制，并证明了核化后对角化可行性 
+  CSK的升级版，详细阐述了循环位移采样过程，和引入核机制，并证明了核化后对角化可行性，此外使用了HOG特征  
 * SRDCF: "Learning Spatially Regularized Correlation Filters for Visual Tracking" ICCV. [[Paper]](https://www.cv-foundation.org/openaccess/content_iccv_2015/html/Danelljan_Learning_Spatially_Regularized_ICCV_2015_paper.html)  
   对滤波模板进行惩罚减少循环位移带来的边际效应
 * HCFT: "Hierarchical Convolutional Features for Visual Tracking" ICCV. [[Paper]](https://www.cv-foundation.org/openaccess/content_iccv_2015/html/Ma_Hierarchical_Convolutional_Features_ICCV_2015_paper.html) [[Code]](https://github.com/jbhuang0604/CF2)  
@@ -54,7 +77,7 @@ This repository records the visual tracking papers I have read, and I also make 
 * CN: "Adaptive Color Attributes for Real-Time Visual Tracking" CVPR (Oral). [[Paper]](http://openaccess.thecvf.com/content_cvpr_2014/html/Danelljan_Adaptive_Color_Attributes_2014_CVPR_paper.html) [[Code]](http://www.cvl.isy.liu.se/research/objrec/visualtracking/colvistrack/ColorTracking_code.zip)   
   将color names替换掉CSK的灰度特征，并使用了PCA对11维特征进行降维
 * SAMF: "A Scale Adaptive Kernel Correlation Filter Tracker with Feature Integration" ECCVW. [[Paper]](https://link.springer.com/chapter/10.1007/978-3-319-16181-5_18)  
-  将 HOG 特征和 CN 特征合并使用和提出了多尺度方法
+  将 HOG 特征和 CN 特征融合并采用了简单的多尺度方法
    
 ## 2012
 * CSK: "Exploiting the Circulant Structure of Tracking-by-detection with Kernels" ECCV. [[Paper]](https://link.springer.com/chapter/10.1007/978-3-642-33765-9_50)  
