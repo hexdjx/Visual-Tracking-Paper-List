@@ -6,8 +6,17 @@ This repository records the visual tracking papers I have read, and I also make 
    针对长期目标跟踪的改进，网络使用了ResNet50+Transformer+DETR预测头。与re-detection 和 global tracking跟踪方式不同，采用10个局部跟踪器（参照Deformable DETR）的集成实现全局跟踪。另外，KeepTrack的LaSOT结果与原作者提供的不一致。  
 
 ## 2021
-
-
+* KeepTrack: "Learning Target Candidate Association to Keep Track of What Not to Track" ICCV. [[Paper]](http://openaccess.thecvf.com/content/ICCV2021/html/Mayer_Learning_Target_Candidate_Association_To_Keep_Track_of_What_Not_ICCV_2021_paper.html)  
+  基于SuperDiMP, 提出可学习的目标候选关联网络，用于显示关联distractor。
+* STARK: "Learning Spatio-Temporal Transformer for Visual Tracking" ICCV. [[Paper]](http://openaccess.thecvf.com/content/ICCV2021/html/Yan_Learning_Spatio-Temporal_Transformer_for_Visual_Tracking_ICCV_2021_paper.html)  
+  不同与常规的transformer结构，参照目标检测的DETR. 
+* "Alpha-Refine: Boosting Tracking Performance by Precise Bounding Box Estimation" CVPR. [[Paper]](http://openaccess.thecvf.com/content/CVPR2021/html/Yan_Alpha-Refine_Boosting_Tracking_Performance_by_Precise_Bounding_Box_Estimation_CVPR_2021_paper.html)  
+   一个即插即用的涨分组件，采用孪生网络架构，主要包括corner和mask分支，在基础跟踪器结构基础上进一步提炼目标框。特征融合是pixel-wise互相关。
+* TranT: "Transformer Tracking" CVPR. [[Paper]](http://openaccess.thecvf.com/content/CVPR2021/html/Chen_Transformer_Tracking_CVPR_2021_paper.html)  
+  孪生跟踪器，采用Transformer结构融合模板和搜索区域特征。
+* TrDiMP: "Transformer Meets Tracker: Exploiting Temporal Context for Robust Visual Tracking" CVPR. [[Paper]](http://openaccess.thecvf.com/content/CVPR2021/html/Wang_Transformer_Meets_Tracker_Exploiting_Temporal_Context_for_Robust_Visual_Tracking_CVPR_2021_paper.html)    
+  基于DiMP, 采用Transformer结构融合多帧特征。
+  
 ## 2020
 * KYS: "Know Your Surroundings: Exploiting Scene Information for Object Tracking" ECCV. [[Paper]](https://link.springer.com/chapter/10.1007/978-3-030-58592-1_13)  
   基于DiMP,采用ConvGRU隐式编码场景信息以应对distractor的干扰
