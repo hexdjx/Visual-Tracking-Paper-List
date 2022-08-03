@@ -2,7 +2,15 @@
 This repository records the visual tracking papers I have read, and I also make a brief summary for each paper.  
 
 ## 2022
-* "Global Tracking via Ensemble of Local Trackers" CVPR. [[Paper]](http://arxiv.org/abs/2203.16092) [[Code]](https://github.com/ZikunZhou/GTELT)  
+* Unicorn: "Towards Grand Unification of Object Tracking" ECCV (Oral). [[Paper]](https://arxiv.org/abs/2207.07078)  
+  VOT/VOS/MOT/MOTS多任务的统一，主要是解决VOT与MOT的统一问题，其他两个任务加个分割分支。两阶段训练网络模型：VOT/MOT与VOS/MOTS数据集。方法结构简单，论文易读，解决问题新颖实用。
+* RTS: "Robust Visual Tracking by Segmentation" ECCV. [[Paper]](https://arxiv.org/abs/2203.11191)  
+  PrDiMP与LWL的组合。分割式跟踪，采用PrDiMP的得分图作为LWL的先验信息获取更准确的分割Mask。
+* ToMP: "Transforming Model Prediction for Tracking" CVPR. [[Paper]](https://openaccess.thecvf.com/content/CVPR2022/html/Mayer_Transforming_Model_Prediction_for_Tracking_CVPR_2022_paper.html)  
+  基于SuperDiMP,提出Transformer架构的目标分类器，矩形框回归采用ltrb表达。   
+* "MixFormer: End-to-End Tracking with Iterative Mixed Attention" CVPR (Oral). [[Paper]](https://openaccess.thecvf.com/content/CVPR2022/html/Cui_MixFormer_End-to-End_Tracking_With_Iterative_Mixed_Attention_CVPR_2022_paper.html)    
+   参照目标检测的CVT, Siamese网络与Transformer架构，堆叠混合注意力模块将特征提取与聚合统一处理，外加一个corner预测头；设计一个得分预测模块选择高质量模板用于更新模板。
+* "Global Tracking via Ensemble of Local Trackers" CVPR. [[Paper]](http://arxiv.org/abs/2203.16092)  
    针对长期目标跟踪的改进，网络使用了ResNet50+Transformer+DETR预测头。与re-detection 和 global tracking跟踪方式不同，采用10个局部跟踪器（参照Deformable DETR）的集成实现全局跟踪。另外，KeepTrack的LaSOT结果与原作者提供的不一致。  
 
 ## 2021
